@@ -1,0 +1,27 @@
+CREATE TABLE petstore  (id INTEGER PRIMARY KEY, name TEXT,section TEXT,price INTEGER, aisle INTEGER, popularity INTEGER);
+
+INSERT into petstore values
+(1, "dog food", "food", 110, 3, 95),
+(2, "cat food", "food", 90, 4, 85),
+(3, "dog treats", "food", 15, 3, 90),
+(4, "cat treats", "food", 13, 4, 80),
+(5, "leashes", "accessories", 25, 5, 80),
+(6, "collars", "accessories", 17, 5, 85),
+(7, "dog toys", "toys", 13, 6, 75),
+(8, "cat toys", "toys", 10, 6, 70),
+(9, "litter", "supplies", 15, 7, 80),
+(10, "aquarium", "reptiles", 300, 9, 15),
+(11, "crickets", "reptiles", 20, 10, 10),
+(12, "huts", "small animal", 70, 11, 30),
+(13, "Pellets", "small animal", 20, 12, 25),
+(14, "carrier", "supplies", 55, 7, 40),
+(15, "timothy hay", "small animal", 15, 12, 20);
+
+--display database ordered by price
+SELECT * FROM petstore ORDER BY price desc;
+
+--What is the average price per section?
+SELECT section, AVG(price)"average price per section" FROM petstore GROUP BY section;
+
+--What are the 5 most popular items?
+SELECT name, price, popularity FROM petstore ORDER BY popularity desc limit 5;
